@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">kotlin_practice1</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login">Login: </string>
+    <string name="password">Password: </string>
+    <string name="info">Info: </string>
 </resources>
