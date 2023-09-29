@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 class viewModel : ViewModel() {
     private val login = MutableLiveData<String>()
     private val password = MutableLiveData<String>()
-    private val info = MutableLiveData<String>()
+    private val email = MutableLiveData<String>()
 
     fun setLogin(text:String){
         login.value = text
@@ -21,10 +21,10 @@ class viewModel : ViewModel() {
     fun getPassword(): LiveData<String>{
         return password
     }
-    fun setInfo(text:String){
-        info.value = text
+    fun setEmail(text:String){
+        email.value = text
     }
-    fun getInfo(): LiveData<String>{
-        return info
+    fun getEmail(): LiveData<String>{
+        return email
     }
 }

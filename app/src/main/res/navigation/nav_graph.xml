@@ -22,12 +22,18 @@
         <action
             android:id="@+id/action_fragment2_to_fragment3"
             app:destination="@id/fragment3" />
+        <action
+            android:id="@+id/action_fragment2_to_fragment1"
+            app:destination="@id/fragment1" />
     </fragment>
     <fragment
         android:id="@+id/fragment3"
         android:name="com.example.kotlin_practice1.Fragment3"
         android:label="fragment_3"
         tools:layout="@layout/fragment_3" >
+        <action
+            android:id="@+id/action_fragment3_to_fragment2"
+            app:destination="@id/fragment2" />
         <action
             android:id="@+id/action_fragment3_to_fragment1"
             app:destination="@id/fragment1" />

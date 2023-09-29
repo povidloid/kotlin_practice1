@@ -7,6 +7,7 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
@@ -21,10 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0"
-            android:text="Information: " />
+            android:text="Email: " />
 
         <TextView
-            android:id="@+id/info"
+            android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1" />
@@ -94,5 +95,45 @@
             android:layout_height="wrap_content"
             android:layout_weight="1" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/button_toDatabase"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="go to database"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button_generateAcc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:text="generate account info"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout3"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout3"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <Button
+        android:id="@+id/button_createAcc"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="create account"
+        app:layout_constraintBottom_toTopOf="@+id/button_toDatabase"
+        app:layout_constraintEnd_toEndOf="@+id/button_toDatabase"
+        app:layout_constraintStart_toStartOf="@+id/button_toDatabase" />
+
+    <Button
+        android:id="@+id/button_clean"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="clean account info"
+        app:layout_constraintEnd_toEndOf="@+id/button_generateAcc"
+        app:layout_constraintStart_toStartOf="@+id/button_generateAcc"
+        app:layout_constraintTop_toBottomOf="@+id/button_generateAcc" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

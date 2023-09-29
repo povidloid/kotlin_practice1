@@ -11,13 +11,13 @@
         android:layout_height="241dp">
 
         <Button
-            android:id="@+id/button_thirdFragment"
+            android:id="@+id/button_fr3Back"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="15dp"
             android:layout_marginEnd="15dp"
-            android:layout_marginBottom="15dp"
-            android:text="return to first fragment"
+            android:layout_marginBottom="12dp"
+            android:text="back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -28,15 +28,24 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="30dp"
+            android:layout_marginTop="15dp"
             android:layout_marginEnd="30dp"
             android:ems="10"
-            android:hint="Write some information about you:"
+            android:hint="Email: "
             android:inputType="text"
             android:minHeight="48dp"
-            app:layout_constraintBottom_toTopOf="@+id/button_thirdFragment"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/button_fr3OK"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="ok"
+            app:layout_constraintBottom_toTopOf="@+id/button_fr3Back"
+            app:layout_constraintEnd_toEndOf="@+id/button_fr3Back"
+            app:layout_constraintStart_toStartOf="@+id/button_fr3Back" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
