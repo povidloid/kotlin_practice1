@@ -16,15 +16,15 @@ class SecondActivity : AppCompatActivity() {
         val db = MainDB.getDb(this)
         db.getDao().getAllUsers().asLiveData().observe(this){ it->
             if (it.isEmpty()){
-                binding.textView.text = "Empty!"
+                binding.textView.text = resources.getString(R.string.message_Empty)
             } else {
                 binding.textView.text = ""
                 it.forEach {
                     val text = "Id: ${it.id}" +
                             "\nNickname: " +
-                            "${it.nickname}" +
+                            it.nickname +
                             "\nPassword: " +
-                            "${it.password}" +
+                            it.password +
                             "\nEmail: " +
                             "${it.email}\n\n"
                     binding.textView.append(text)

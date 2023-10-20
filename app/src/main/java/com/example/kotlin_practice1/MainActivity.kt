@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import com.example.kotlin_practice1.database.MainDB
 import com.example.kotlin_practice1.database.UserDB
 import com.example.kotlin_practice1.databinding.ActivityMainBinding
@@ -15,20 +14,21 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.Random
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var vModel: viewModel
+
+    private val vModel : MyViewModel by viewModel()
     private lateinit var user: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        vModel = ViewModelProvider(this)[viewModel::class.java]
         vModel.getLogin().observe(this) { newLogin ->
             binding.login.text = newLogin
         }
@@ -47,26 +47,16 @@ class MainActivity : AppCompatActivity() {
             CoroutineScope(Dispatchers.IO).launch {
                 withContext(Dispatchers.Main)
                 {
-                    try {
-                        user = userAPI.getUserById(Random().nextInt(50) + 1)
-                        Log.d("myApp", user.username + " " + user.password + " " + user.email)
-                        vModel.setLogin(user.username)
-                        vModel.setPassword(user.password)
-                        vModel.setEmail(user.email)
-                        Toast.makeText(
-                            applicationContext,
-                            "The account details was successfully generated",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } catch (e: java.net.UnknownHostException) {
-                        Toast.makeText(
-                            applicationContext,
-                            "Failed to generate: check your internet connection",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    } catch (e: Exception) {
-                        Log.e("myApp", "error: $e")
-                    }
+                    user = userAPI.getUserById(Random().nextInt(50) + 1)
+                    Log.d("myApp", user.username + " " + user.password + " " + user.email)
+                    vModel.setLogin(user.username)
+                    vModel.setPassword(user.password)
+                    vModel.setEmail(user.email)
+                    Toast.makeText(
+                        applicationContext,
+                        "The account details was successfully generated",
+                        Toast.LENGTH_SHORT
+                    ).show()
                 }
             }
         }
@@ -75,9 +65,9 @@ class MainActivity : AppCompatActivity() {
             cleanVModel()
         }
 
-//        Thread{
-//            this.deleteDatabase("test.db")
-//        }.start()
+        Thread{
+            this.deleteDatabase("test.db")
+        }.start()
 
         val db = MainDB.getDb(this)
 

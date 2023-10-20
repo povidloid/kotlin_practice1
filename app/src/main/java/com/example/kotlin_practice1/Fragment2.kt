@@ -6,19 +6,18 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.kotlin_practice1.databinding.Fragment2Binding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class Fragment2 : Fragment() {
     private lateinit var binding:Fragment2Binding
-    private lateinit var vModel:viewModel
+    private val vModel : MyViewModel by viewModel()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = Fragment2Binding.inflate(layoutInflater)
-        vModel = ViewModelProvider(requireActivity())[viewModel::class.java]
 
         binding.buttonFr2Continue.setOnClickListener{
             val password = binding.editTextTextPassword.text.toString()
