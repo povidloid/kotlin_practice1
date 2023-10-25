@@ -136,4 +136,17 @@
         app:layout_constraintStart_toStartOf="@+id/button_generateAcc"
         app:layout_constraintTop_toBottomOf="@+id/button_generateAcc" />
 
+    <ImageButton
+        android:id="@+id/eulaButton"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:background="#00FFFFFF"
+        android:contentDescription="eula"
+        android:scaleType="centerInside"
+        app:layout_constraintBottom_toTopOf="@+id/button_createAcc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_clean"
+        app:srcCompat="@drawable/eula" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
